@@ -114,8 +114,6 @@
          The user is forbidden from setting the brightness below this level. -->
     <integer name="config_screenBrightnessSettingMinimum">3</integer>
 
-    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
-
     <!-- MMS user agent string -->
     <string name="config_mms_user_agent" translatable="false">Android-Mms/2.0</string>
 
@@ -200,9 +198,6 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
-
     <!-- Make things go fast -->
     <bool name="config_ui_enableFadingMarquee">false</bool>
 
@@ -220,44 +215,6 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">83</integer>
 
-    <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
-         This integer should equal the sum of the corresponding value for each
-         of the following keys present:
-             1 - Home
-             2 - Back
-             4 - Menu
-             8 - Assistant (search)
-            16 - App switch
-            32 - Camera
-            64 - Volume rocker
-         For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">64</integer>
-
-    <!-- Control the behavior when the user long presses the home button
-             0 - Nothing
-             1 - Menu key
-             2 - Recent apps view in SystemUI
-             3 - Launch assist intent
-             4 - Voice Search
-             5 - In-app Search
-         This needs to match the constants in
-         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
-     -->
-    <integer name="config_longPressOnHomeBehavior">3</integer>
-
-    <!-- Control the behavior when the user long presses the app switch button
-             0 - Nothing
-             1 - Menu key
-             2 - Recent apps view in SystemUI
-             3 - Launch assist intent
-             4 - Voice Search
-             5 - In-app Search
-         This needs to match the constants in
-         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
-     -->
-     <integer name="config_longPressOnAppSwitchBehavior">1</integer>
-
     <!-- Disable lockscreen rotation by default -->
     <bool name="config_enableLockScreenRotation">false</bool>
 
@@ -272,4 +229,47 @@
 
     <!-- enable doze powersaving mode -->
     <bool name="config_enableAutoPowerModes">true</bool>
+
+    <!-- Control the behavior when the user long presses or double taps one of the below keys.
+          0 - Nothing
+          1 - Menu key
+          2 - Recent apps view in SystemUI
+          3 - Launch assist intent
+          4 - Voice search
+          5 - In-app search
+          6 - Launch camera
+          7 - Launch last app
+          8 - Split screen
+          9 - Screen off
+       This needs to match the constants in
+       services/core/java/com/android/server/policy/PhoneWindowManager.java -->
+
+    <!-- home -->
+    <integer name="config_longPressOnHomeKeyBehavior">3</integer>
+    <integer name="config_doubleTapOnHomeKeyBehavior">0</integer>
+    <!-- menu -->
+    <integer name="config_longPressOnMenuKeyBehavior">0</integer>
+    <integer name="config_doubleTapOnMenuKeyBehavior">0</integer>
+    <!-- back -->
+    <integer name="config_longPressOnBackKeyBehavior">9</integer>
+    <integer name="config_doubleTapOnBackKeyBehavior">0</integer>
+    <!-- assist -->
+    <integer name="config_longPressOnAssistKeyBehavior">0</integer>
+    <integer name="config_doubleTapOnAssistKeyBehavior">0</integer>
+    <!-- app switch -->
+    <integer name="config_longPressOnAppSwitchKeyBehavior">8</integer>
+    <integer name="config_doubleTapOnAppSwitchKeyBehavior">0</integer>
+    <!-- camera -->
+    <integer name="config_longPressOnCameraKeyBehavior">0</integer>
+    <integer name="config_doubleTapOnCameraKeyBehavior">0</integer>
+
+    <!-- Default value for proximity check on screen wake
+     NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
+    <bool name="config_proximityCheckOnWake">true</bool>
+    <integer name="config_proximityCheckTimeout">200</integer>
+    <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
+
+    <!-- If enabled, capacitive keys will only light up when pressed.
+         Otherwise, the buttons will light up whenever the user interacts with the device -->
+    <bool name="config_buttonLightOnKeypressOnly">true</bool>
 </resources>
